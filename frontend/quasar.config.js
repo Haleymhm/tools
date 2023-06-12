@@ -1,4 +1,4 @@
-/* eslint-env node */
+/** eslint-env node */
 
 /*
  * This file runs in a Node context (it's NOT transpiled by Babel), so use only
@@ -104,7 +104,11 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: ["AddressbarColor",
+      "AppFullscreen",
+      "Dialog",
+      "Loading",
+      "Notify",]
     },
 
     // animations: 'all', // --- includes all animations
