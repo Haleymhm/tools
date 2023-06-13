@@ -2,16 +2,6 @@
   <q-layout view="hHh lpR fFf" class="bg-grey-1">
     <q-header elevated class="bg-white text-grey-8" height-hint="64">
       <q-toolbar class="GNL__toolbar">
-        <q-btn
-          flat
-          dense
-          round
-          @click="toggleLeftDrawer"
-          aria-label="Menu"
-          icon="menu"
-          class="q-mr-sm"
-        />
-
         <q-toolbar-title
           v-if="$q.screen.gt.xs"
           shrink
@@ -26,6 +16,15 @@
           <span class="q-ml-sm">Track</span>
         </q-toolbar-title>
 
+        <q-btn
+          flat
+          dense
+          round
+          @click="toggleLeftDrawer"
+          aria-label="Menu"
+          icon="menu"
+          class="q-ml-sm"
+        />
         <q-space />
 
         <q-input
@@ -248,10 +247,10 @@ export default defineComponent({
 
       links1: [
         { icon: "star_border", text: "Empresa", link: "#/company" },
-        { icon: "web", text: "Unidad", link: "#/uniit" },
-        { icon: "person", text: "Tipo actividad", link: "#/tactivity" },
+        { icon: "web", text: "Unidad Opreativa", link: "#/uniit" },
+        { icon: "person", text: "Tipo Actividad", link: "#/tactivity" },
         { icon: "search", text: "Usuarios", link: "#/user" },
-        { icon: "search", text: "Perfil", link: "#/user" },
+        { icon: "person", text: "Perfil", link: "#/profile" },
       ],
 
       onClear,
