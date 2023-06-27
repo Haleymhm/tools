@@ -16,11 +16,8 @@
               outlined
               v-model="email"
               label="Email"
-              class="col-xs-12 col-sm-6 col-md-8 q-pa-xs"
+              class="col-xs-12 col-sm-6 col-md-8 q-pa-xs wrap-input100"
               lazy-rules
-              :rules="[
-                (val) => (val && val.length > 0) || 'Please type something',
-              ]"
             />
             <q-input
               outlined
@@ -28,7 +25,7 @@
               label="Password"
               :type="isPwd ? 'password' : 'text'"
               hint=""
-              class="col-xs-12 col-sm-6 col-md-4 q-pa-xs"
+              class="col-xs-12 col-sm-6 col-md-4 q-pa-xs  wrap-input100"
             >
               <template v-slot:append>
                 <q-icon
@@ -39,9 +36,10 @@
               </template>
             </q-input>
 
-            <div class="container-login100-form-btn">
-              <q-btn type="submit" label="Guardar" color="primary" />
-              <q-btn push color="white" text-color="primary" label="Push" />
+            <div class="container-login100-form-btn ">
+              <q-btn color="white" text-color="primary" label="Push" class="login100-form-btn" />
+              <q-btn type="submit" label="Guardar" color="primary" class="login100-form-btn" />
+              
             </div>
           </q-form>
 
@@ -70,6 +68,21 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+.size2 {
+  width: calc(100% - 43px);
+}
 .limiter {
   width: 100%;
   margin: 0 auto;
@@ -156,7 +169,7 @@ export default defineComponent({
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content:space-between;
 }
 
 .login100-form-btn {
@@ -168,17 +181,15 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  width: 100%;
+  width: 48%;
   height: 50px;
   border-radius: 10px;
-  background: #6675df;
-
-  font-family: Montserrat-Bold;
-  font-size: 12px;
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-top: 1em;
+  
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -190,6 +201,51 @@ export default defineComponent({
   background: #333333;
 }
 
+.wrap-input100 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 100%;
+  height: 70px;
+  position: relative;
+  
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.label-input100 {
+  font-family: Montserrat-Regular;
+  font-size: 18px;
+  color: #999999;
+  line-height: 1.2;
+
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  padding-left: 24px;
+  left: 0;
+  top: 30px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.input100 {
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: Montserrat-Regular;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+  padding: 0 26px;
+}
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
