@@ -77,17 +77,11 @@ export default defineComponent({
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
-}
-
-.size2 {
-  width: calc(100% - 43px);
 }
 .limiter {
   width: 100%;
   margin: 0 auto;
 }
-
 .container-login100 {
   width: 100%;
   min-height: 100vh;
@@ -101,7 +95,6 @@ body, html {
   align-items: center;
   background: #f2f2f2;
 }
-
 .wrap-login100 {
   width: 100%;
   background: #fff;
@@ -115,7 +108,6 @@ body, html {
   align-items: stretch;
   flex-direction: row-reverse;
 }
-
 /*==================================================================
 [ login more ]*/
 .login100-more {
@@ -126,7 +118,6 @@ body, html {
   position: relative;
   z-index: 1;
 }
-
 .login100-more::before {
   content: "";
   display: block;
@@ -141,7 +132,6 @@ body, html {
 
 /*==================================================================
 [ Form ]*/
-
 .login100-form {
   width: 560px;
   min-height: 100vh;
@@ -189,7 +179,6 @@ body, html {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 1em;
-  
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -212,7 +201,6 @@ body, html {
   width: 100%;
   height: 70px;
   position: relative;
-  
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -222,7 +210,6 @@ body, html {
   font-size: 18px;
   color: #999999;
   line-height: 1.2;
-
   display: block;
   position: absolute;
   pointer-events: none;
@@ -240,7 +227,6 @@ body, html {
   display: block;
   width: 100%;
   background: transparent;
-  font-family: Montserrat-Regular;
   font-size: 18px;
   color: #555555;
   line-height: 1.2;
