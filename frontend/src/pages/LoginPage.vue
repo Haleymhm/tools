@@ -1,40 +1,62 @@
 <template>
-  <div style="background-color: #666666;">
+  <div style="background-color: #666666">
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
-          <form class="login100-form validate-form">
+          <q-form
+            @submit="onSubmit"
+            @reset="onReset"
+            class="login100-form validate-form"
+          >
             <span class="login100-form-title p-b-43">
               Entrada del sistema
             </span>
 
-            <q-input outlined v-model="email" label="Email" class="col-xs-12 col-sm-6 col-md-8 q-pa-xs" />
-            <q-input outlined v-model="password" label="Password" :type="isPwd ? 'password' : 'text'"
-              hint="" class="col-xs-12 col-sm-6 col-md-4 q-pa-xs">
+            <q-input
+              outlined
+              v-model="email"
+              label="Email"
+              class="col-xs-12 col-sm-6 col-md-8 q-pa-xs"
+              lazy-rules
+              :rules="[
+                (val) => (val && val.length > 0) || 'Please type something',
+              ]"
+            />
+            <q-input
+              outlined
+              v-model="password"
+              label="Password"
+              :type="isPwd ? 'password' : 'text'"
+              hint=""
+              class="col-xs-12 col-sm-6 col-md-4 q-pa-xs"
+            >
               <template v-slot:append>
-                <q-icon :name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd" />
+                <q-icon
+                  :name="isPwd ? 'visibility_off' : 'visibility'"
+                  class="cursor-pointer"
+                  @click="isPwd = !isPwd"
+                />
               </template>
             </q-input>
-            
 
             <div class="container-login100-form-btn">
               <q-btn type="submit" label="Guardar" color="primary" />
               <q-btn push color="white" text-color="primary" label="Push" />
             </div>
+          </q-form>
 
-          </form>
-
-          <div class="login100-more" style="background-image: url('./images/bg-01.jpg');">
-          </div>
+          <div
+            class="login100-more"
+            style="background-image: url('./images/bg-01.jpg')"
+          ></div>
         </div>
       </div>
     </div>
   </div>
 </template>
-  
+
 <script>
 import { defineComponent } from "vue";
-
 
 export default defineComponent({
   name: "LoginPage",
@@ -42,11 +64,9 @@ export default defineComponent({
     return {
       email: "",
       password: "",
-      isPwd: true
+      isPwd: true,
     };
   },
-
-
 });
 </script>
 <style scoped>
@@ -69,7 +89,6 @@ export default defineComponent({
   background: #f2f2f2;
 }
 
-
 .wrap-login100 {
   width: 100%;
   background: #fff;
@@ -82,7 +101,6 @@ export default defineComponent({
   flex-wrap: wrap;
   align-items: stretch;
   flex-direction: row-reverse;
-
 }
 
 /*==================================================================
@@ -108,8 +126,6 @@ export default defineComponent({
   background: rgba(0, 0, 0, 0.1);
 }
 
-
-
 /*==================================================================
 [ Form ]*/
 
@@ -129,8 +145,6 @@ export default defineComponent({
   line-height: 1.2;
   text-align: center;
 }
-
-
 
 /*------------------------------------------------------------------
 [ Button ]*/
@@ -175,8 +189,6 @@ export default defineComponent({
 .login100-form-btn:hover {
   background: #333333;
 }
-
-
 
 /*------------------------------------------------------------------
 [ Responsive ]*/
