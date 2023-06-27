@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->char('id_company',36)->nullable();
             $table->string('unit_name');
-            $table->string('unit_status');
-            $table->integer('deleted')->nullable();
+            $table->string('unit_status')->default(1);
+            $table->integer('deleted')->default(0);
             $table->timestamps();
         });
     }

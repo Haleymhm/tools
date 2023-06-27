@@ -2,47 +2,20 @@
   <q-layout view="hHh lpR fFf" class="bg-grey-1">
     <q-header elevated class="bg-white text-grey-8" height-hint="64">
       <q-toolbar class="GNL__toolbar">
-        <q-toolbar-title
-          v-if="$q.screen.gt.xs"
-          shrink
-          class="row items-center no-wrap"
-        >
-          <img
-            alt="Quasar logo"
-            src="~assets/shield.svg"
-            style="width: 50px; height: 50px"
-          />
+        <q-toolbar-title v-if="$q.screen.gt.xs" shrink class="row items-center no-wrap">
+          <img alt="Quasar logo" src="~assets/shield.svg" style="width: 50px; height: 50px" />
           <span class="q-ml-sm">Safe</span>
           <span class="q-ml-sm">Track</span>
         </q-toolbar-title>
 
-        <q-btn
-          flat
-          dense
-          round
-          @click="toggleLeftDrawer"
-          aria-label="Menu"
-          icon="menu"
-          class="q-ml-sm"
-        />
+        <q-btn flat dense round @click="toggleLeftDrawer" aria-label="Menu" icon="menu" class="q-ml-sm" />
         <q-space />
 
-        <q-input
-          class="GNL__toolbar-input"
-          outlined
-          dense
-          v-model="search"
-          color="bg-grey-7 shadow-1"
-          placeholder="Search for topics, locations & sources"
-        >
+        <q-input class="GNL__toolbar-input" outlined dense v-model="search" color="bg-grey-7 shadow-1"
+          placeholder="Search for topics, locations & sources">
           <template v-slot:prepend>
             <q-icon v-if="search === ''" name="search" />
-            <q-icon
-              v-else
-              name="clear"
-              class="cursor-pointer"
-              @click="search = ''"
-            />
+            <q-icon v-else name="clear" class="cursor-pointer" @click="search = ''" />
           </template>
           <template v-slot:append>
             <q-btn flat dense round aria-label="Menu" icon="arrow_drop_down">
@@ -78,27 +51,10 @@
                     </div>
 
                     <div class="col-12 q-pt-lg row justify-end">
-                      <q-btn
-                        flat
-                        dense
-                        no-caps
-                        color="grey-7"
-                        size="md"
-                        style="min-width: 68px"
-                        label="Search"
-                        v-close-popup
-                      />
-                      <q-btn
-                        flat
-                        dense
-                        no-caps
-                        color="grey-7"
-                        size="md"
-                        style="min-width: 68px"
-                        @click="onClear"
-                        label="Clear"
-                        v-close-popup
-                      />
+                      <q-btn flat dense no-caps color="grey-7" size="md" style="min-width: 68px" label="Search"
+                        v-close-popup />
+                      <q-btn flat dense no-caps color="grey-7" size="md" style="min-width: 68px" @click="onClear"
+                        label="Clear" v-close-popup />
                     </div>
                   </div>
                 </div>
@@ -121,36 +77,17 @@
             <q-tooltip>Account</q-tooltip>
           </q-btn>
 
-          <q-btn
-            round
-            dense
-            flat
-            color="grey-8"
-            @click="$q.fullscreen.toggle()"
+          <q-btn round dense flat color="grey-8" @click="$q.fullscreen.toggle()"
             :icon="$q.fullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'"
-            :label="$q.fullscreen.isActive ? ' ' : ' '"
-          />
+            :label="$q.fullscreen.isActive ? ' ' : ' '" />
         </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      class="bg-white"
-      :width="280"
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-white" :width="280">
       <q-scroll-area class="fit">
         <q-list padding class="text-grey-8">
-          <q-item
-            class="GNL__drawer-item"
-            v-ripple
-            v-for="link in links1"
-            :key="link.text"
-            clickable
-            :href="link.link"
-          >
+          <q-item class="GNL__drawer-item" v-ripple v-for="link in links1" :key="link.text" clickable :href="link.link">
             <q-item-section avatar>
               <q-icon :name="link.icon" />
             </q-item-section>
@@ -170,8 +107,6 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import { fasEarthAmericas, fasFlask } from "@quasar/extras/fontawesome-v6";
-
 import { useQuasar } from "quasar";
 
 export default defineComponent({
@@ -247,12 +182,11 @@ export default defineComponent({
 
       links1: [
         { icon: "star_border", text: "Empresa", link: "#/company" },
-        { icon: "web", text: "Unidad Opreativa", link: "#/uniit" },
-        { icon: "person", text: "Tipo Actividad", link: "#/tactivity" },
-        { icon: "search", text: "Usuarios", link: "#/user" },
+        { icon: "store", text: "Unidad Opreativa", link: "#/uniit" },
+        { icon: "view_list", text: "Tipo Actividad", link: "#/tactivity" },
+        { icon: "manage_accounts", text: "Usuarios", link: "#/user" },
         { icon: "person", text: "Perfil", link: "#/profile" },
       ],
-
       onClear,
       changeDate,
       toggleLeftDrawer,

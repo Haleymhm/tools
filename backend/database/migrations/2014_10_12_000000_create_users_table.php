@@ -17,6 +17,7 @@ return new class extends Migration
             $table->char('id_company',36)->nullable();
             $table->char('id_unitop',36)->nullable();
             $table->char('id_typeact',36)->nullable();
+            $table->string('rutrif',15)->nullable()->unique(); //verificar a ver sise puede
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('id_user',36);
             $table->string('rutrif',15)->nullable();
             $table->string('company_name');
-            $table->string('company_addres');
+            $table->string('company_address');
             $table->string('company_telephone')->nullable();
             $table->string('company_email')->nullable();
             $table->string('Company_logo')->nullable();
