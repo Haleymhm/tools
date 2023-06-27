@@ -1,15 +1,16 @@
 <template>
-  <q-page class="q-pa-md">
-    <q-form @submit="submitForm">
+  <q-page class="q-pa-md" >
+
+    <q-form @submit="submitForm" >
       <q-card class="my-card" flat bordered>
         <q-card-section>
-          <div class="text-h6">Empresa</div>
+          <div class="text-h6">Empresa 1</div>
         </q-card-section>
         <q-card-section>
           <div class="container text-center">
             <div class="row">
-              <q-input outlined v-model="nombre" label="Nombre" class="col-xs-12 col-sm-6 col-md-8 q-pa-xs" />
               <q-input outlined v-model="rut" label="Rut" class="col-xs-12 col-sm-6 col-md-4 q-pa-xs" mask="########-#" placeholder="ej: 12345678-9" />
+              <q-input outlined v-model="nombre" label="Nombre" class="col-xs-12 col-sm-6 col-md-8 q-pa-xs" />
             </div>
             <div class="row">
               <q-input outlined v-model="direccion" label="Dirección" class="col-xs-12 col-sm-12 col-md-12 q-pa-xs" />
@@ -27,6 +28,7 @@
         </q-card-actions>
       </q-card>
     </q-form>
+
   </q-page>
 </template>
 
@@ -52,3 +54,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="sass" scoped>
+.my-card
+  width: 80%,
+  align: center
+</style>

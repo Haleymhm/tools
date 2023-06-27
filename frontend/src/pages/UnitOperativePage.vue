@@ -1,28 +1,20 @@
 <template>
-  <q-page class="flex flex-center">
-    <div class="q-pa-md q-gutter-sm">
-      <h4>Unidad Operativa</h4> <q-btn label="Click me" color="primary" @click="onDialogShow" />
+  <q-page class="q-pa-md">
 
-      <div class="q-pa-md">
-        <q-table title="Treats" :rows="rows" :columns="columns" row-key="name" />
-      </div>
-
-      <q-dialog ref="dialogRef" @hide="onDialogHide">
-    <q-card class="q-dialog-plugin">
-      <!--
-        ...content
-        ... use q-card-section for it?
-      -->
-
-      <!-- buttons example -->
-      <q-card-actions align="right">
-        <q-btn color="primary" label="OK" @click="onOKClick" />
-        <q-btn color="primary" label="Cancel" @click="onCancelClick" />
-      </q-card-actions>
-    </q-card>
-  </q-dialog>
-
-    </div>
+<q-card class="my-card" flat bordered>
+      <q-card-section>
+        <div class="col-8 inline">Unidades Operativas</div>
+        <div class="col-2"><q-btn type="button" label="Nuevo" color="primary" class="col-xs-12 col-md-2" /></div>
+      </q-card-section>
+      <q-card-section>
+        <q-table
+    title="Treats"
+    :rows="rows"
+    :columns="columns"
+    row-key="name"
+  />
+      </q-card-section>
+</q-card>
   </q-page>
 </template>
 
