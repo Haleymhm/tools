@@ -1,23 +1,23 @@
 <template>
-  
   <q-layout view="hHh lpR fFf" class="bg-grey-1">
-    
     <q-header elevated class="bg-white text-grey-8" height-hint="64">
       <q-bar dense class="bg-light-blue-10 text-white">
-      <div>mobi-net</div>
-      <q-icon name="email" />
-      <q-space />
-      <q-icon name="bluetooth" />
-      <q-icon name="signal_wifi_4_bar" />
-      <q-icon name="signal_cellular_4_bar" />
-      <div class="gt-xs">100%</div>
-      <q-icon name="battery_1_bar" class="text-red" />
-      <div>10:00AM</div>
-    </q-bar>
+        <div>mobi-net</div>
+        <q-icon name="email" />
+        <q-space />
+        <q-icon name="bluetooth" />
+        <q-icon name="signal_wifi_4_bar" />
+        <q-icon name="signal_cellular_4_bar" />
+        <div class="gt-xs">100%</div>
+        <q-icon name="battery_1_bar" class="text-red" />
+        <div>10:00AM</div>
+      </q-bar>
       <q-toolbar class="GNL__toolbar">
         <q-toolbar-title v-if="$q.screen.gt.xs" shrink class="row items-center no-wrap">
-          <img alt="Quasar logo" src="~assets/shield.svg" style="width: 50px; height: 50px" />
-          <span class="q-ml-sm">Safe Track</span>
+          <a href="#/home">
+            <img alt="Quasar logo" src="~assets/shield.svg" style="width: 50px; height: 50px" /></a>
+            <span class="q-ml-sm">Safe Track</span>
+          
         </q-toolbar-title>
 
         <q-btn flat dense round @click="toggleLeftDrawer" aria-label="Menu" icon="menu" class="q-ml-sm" />
@@ -27,7 +27,7 @@
           placeholder="Search for topics, locations & sources">
           <template v-slot:prepend>
             <q-icon name="search" />
-          </template> 
+          </template>
         </q-input>
 
         <q-space />
