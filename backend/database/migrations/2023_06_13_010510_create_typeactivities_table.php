@@ -18,12 +18,12 @@ return new class extends Migration
             $table->text('type_description');
             $table->string('type_color',8)->default("#AEB6BF");
             $table->char('type_view',3)->nullable()->default("cal");
-            $table->char('mcal',2)->nullable()->default("SI");
-            $table->char('mind',2)->nullable()->default("SI");
-            $table->integer('parent')->default(0);
-            $table->integer('orden')->default(0);
-            $table->char('icono',36)->nullable()->default("fa fa-plus");
-            $table->char('tmenu',1)->nullable()->default("T");
+            $table->char('type_mcal',2)->nullable()->default("SI");
+            $table->char('type_mind',2)->nullable()->default("SI");
+            $table->integer('type_parent')->default(0);
+            $table->integer('type_orden')->default(0);
+            $table->char('type_icono',36)->nullable()->default("fa fa-plus");
+            $table->char('type_tmenu',1)->nullable()->default("T");
             $table->integer('type_status',1)->default(1);
             $table->integer('type_deleted')->default(0);
             $table->timestamps();
