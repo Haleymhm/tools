@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
-use App\Http\Requests\StoreCompanyRequest;
-use App\Http\Requests\UpdateCompanyRequest;
+use App\Models\User;
+use DB;
+/*use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;*/
 
 class CompanyController extends Controller
 {
@@ -41,7 +43,7 @@ class CompanyController extends Controller
 
         return response()->json([
             'status'=>true,
-            'msg'=>'Record created successfully',
+            'msg'=>'Query successfully',
             'data' => $company]
             , 201);
 
@@ -52,7 +54,12 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Query successfully',
+            'data' => $users]
+            , 200);
     }
 
     /**
@@ -74,7 +81,7 @@ class CompanyController extends Controller
 
         return response()->json([
             'status'=>true,
-            'msg'=>'Record updated successfully',
+            'msg'=>'Record UPDATED successfully',
             'data' => $company]
             , 200);
     }
@@ -84,6 +91,24 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $company->delete();
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Record DELETED successfully',
+            'data' => $company]
+            , 200);
+    }
+
+    public function userByCompany(Company $company)
+    {
+        $users = User::select('id, name, email, status')
+                    ->where('id_company','=',$company->id)
+                    ->get();
+        
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Query successfully',
+            'data' => $users]
+            , 200);
     }
 }

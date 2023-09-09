@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('type_orden')->default(0);
             $table->char('type_icono',36)->nullable()->default("fa fa-plus");
             $table->char('type_tmenu',1)->nullable()->default("T");
-            $table->integer('type_status',1)->default(1);
+            $table->integer('type_status')->default(1);
             $table->integer('type_deleted')->default(0);
             $table->timestamps();
         });
