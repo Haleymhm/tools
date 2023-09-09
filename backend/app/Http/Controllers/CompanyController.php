@@ -13,7 +13,10 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Ruta y Controllador  funciona correctamente']
+            , 200);
     }
 
     /**
