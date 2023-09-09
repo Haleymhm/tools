@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('typeactivities', function (Blueprint $table) {
-            $table->uuid();
+            $table->uuid('id')->primary();
             $table->char('id_company',36);
             $table->string('type_title');
             $table->text('type_description');
