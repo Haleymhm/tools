@@ -18,5 +18,14 @@ class DatabaseSeeder extends Seeder
              'name' => 'Admin System',
              'email' => 'admin@tool.test',
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Admin Test Company',
+            'email' => 'admintest1@tool.test',
+       ]);
+
+       \App\Models\Company::factory()->create([
+        'name' => 'Admin System',
+        'email' => 'admin@tool.test',
+   ]);
     }
 }

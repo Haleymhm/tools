@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('unitoperatives', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->char('id_company',36)->nullable();
+            $table->char('id_company',36);
             $table->string('unit_name');
             $table->string('unit_status')->default(1);
             $table->integer('unit_deleted')->default(0);

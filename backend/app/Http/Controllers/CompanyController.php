@@ -13,9 +13,11 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        $company = Company::all();
         return response()->json([
             'status'=>true,
-            'msg'=>'Ruta y Controllador  funciona correctamente']
+            'msg'=>'Consulta Exitosa',
+            'data' => $company]
             , 200);
     }
 
@@ -24,7 +26,25 @@ class CompanyController extends Controller
      */
     public function store(StoreCompanyRequest $request)
     {
-        //
+        $rules = ['name'=>'required|string|min:3|max:100'];
+        $validator = \Validator::make($request->input());
+        if($validator->fails()){
+            return response()->json([
+                'status'=>false,
+                'msg'=>'Error en consulta',
+                'data' => $validator->errors()->all()]
+                , 400);
+        }
+
+        $company = new Company($request->input());
+        $company->save();
+
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Record created successfully',
+            'data' => $company]
+            , 201);
+
     }
 
     /**
@@ -40,7 +60,23 @@ class CompanyController extends Controller
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        //
+        $rules = ['name'=>'required|string|min:3|max:100'];
+        $validator = \Validator::make($request->input());
+        if($validator->fails()){
+            return response()->json([
+                'status'=>false,
+                'msg'=>'Error en consulta',
+                'data' => $validator->errors()->all()]
+                , 400);
+        }
+
+        $company->update($request->input());
+
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Record updated successfully',
+            'data' => $company]
+            , 200);
     }
 
     /**

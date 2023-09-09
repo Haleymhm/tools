@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('id_user',36);
+            $table->string('id_user',36)->nullable();
             $table->string('company_rutrif',15)->nullable();
             $table->string('company_name');
             $table->string('company_address');
