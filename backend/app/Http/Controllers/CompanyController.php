@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Company;
 use App\Models\User;
 use DB;
-/*use App\Http\Requests\StoreCompanyRequest;
-use App\Http\Requests\UpdateCompanyRequest;*/
 
 class CompanyController extends Controller
 {
@@ -17,11 +15,7 @@ class CompanyController extends Controller
         //$this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
+    public function index(){
         $company = Company::all();
         return response()->json([
             'status'=>true,
@@ -30,11 +24,7 @@ class CompanyController extends Controller
             , 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $rules = ['company_name'=>'required|string|min:3|max:100'];
         $validator = Validator::make($request->input(),
                         ['company_name'=>'required|string|min:3|max:100'
@@ -58,12 +48,7 @@ class CompanyController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Company $company)
-    {
-        
+    public function show(Company $company){  
         return response()->json([
             'status'=>true,
             'msg'=>'Query successfully',
@@ -71,11 +56,7 @@ class CompanyController extends Controller
             , 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request)
-    {
+    public function update(Request $request){
         $validator = Validator::make($request->input(),
                         ['company_name'=>'required|string|min:3|max:100'
                     ]);
@@ -97,11 +78,7 @@ class CompanyController extends Controller
             , 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         $company= Company::find($request->id);
         $company->delete();
         return response()->json([
@@ -111,10 +88,8 @@ class CompanyController extends Controller
             , 200);
     }
 
-    public function userByCompany(Company $company)
-    {
-        $users = User::select('id, name, email, status')
-                    ->where('id_company','=',$company->id)
+    public function userByCompany(Request $request){
+        $users = User::where('id_company','=',$request->id)
                     ->get();
         
         return response()->json([
