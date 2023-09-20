@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photo')->nullable()->default("nophoto.png");
             $table->string('position')->nullable();
-            $table->string('timezone')->nullable();
+            $table->string('timezone')->nullable()->default("America/Santiago");
             $table->char('language',2)->nullable()->default("es");
             $table->integer('view')->default(0);
             $table->string('password');

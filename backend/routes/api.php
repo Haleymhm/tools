@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UnitoperativeController;
 use App\Http\Controllers\TypeactivityController;
@@ -24,5 +25,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('company', CompanyController::class);
+Route::put('company', [CompanyController::class,'update']);
+Route::delete('company', [CompanyController::class,'destroy']);
+Route::post('company/user-by-company', [CompanyController::class,'userByCompany']);
+
+
+
 Route::resource('unit-operative', UnitoperativeController::class);
 Route::resource('type-activity', TypeactivityController::class);
