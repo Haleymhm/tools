@@ -88,9 +88,8 @@ class CompanyController extends Controller
             , 200);
     }
 
-    public function userByCompany(Company $company){
-        $users = User::select('id, name, email, status')
-                    ->where('id_company','=',$company->id)
+    public function userByCompany(Request $request){
+        $users = User::where('id_company','=',$request->id)
                     ->get();
         
         return response()->json([

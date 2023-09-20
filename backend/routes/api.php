@@ -33,6 +33,9 @@ Route::post('company/user-by-company', [CompanyController::class,'userByCompany'
 Route::post('users/get-users-list', [UserController::class,'getUsersList']);
 Route::post('users/get-user', [UserController::class,'getUser']);
 Route::post('users/create-user', [UserController::class,'cretedUser']);
+Route::post('users/update-user', [UserController::class,'updateUser']);
+Route::post('users/activate-user', [UserController::class,'activateUser']);
+Route::post('users/password-user', [UserController::class,'activateUser']);
 
 
 Route::resource('unit-operative', UnitoperativeController::class);
