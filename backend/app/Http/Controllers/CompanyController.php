@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Company;
 use App\Models\User;
 use DB;
@@ -10,6 +12,11 @@ use App\Http\Requests\UpdateCompanyRequest;*/
 
 class CompanyController extends Controller
 {
+
+    public function __construct(){
+        //$this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,10 +33,12 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCompanyRequest $request)
+    public function store(Request $request)
     {
-        $rules = ['name'=>'required|string|min:3|max:100'];
-        $validator = \Validator::make($request->input());
+        $rules = ['company_name'=>'required|string|min:3|max:100'];
+        $validator = Validator::make($request->input(),
+                        ['company_name'=>'required|string|min:3|max:100'
+                    ]);
         if($validator->fails()){
             return response()->json([
                 'status'=>false,
@@ -58,17 +67,18 @@ class CompanyController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Query successfully',
-            'data' => $users]
+            'data' => $company]
             , 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCompanyRequest $request, Company $company)
+    public function update(Request $request)
     {
-        $rules = ['name'=>'required|string|min:3|max:100'];
-        $validator = \Validator::make($request->input());
+        $validator = Validator::make($request->input(),
+                        ['company_name'=>'required|string|min:3|max:100'
+                    ]);
         if($validator->fails()){
             return response()->json([
                 'status'=>false,
@@ -77,6 +87,7 @@ class CompanyController extends Controller
                 , 400);
         }
 
+        $company= Company::find($request->id);
         $company->update($request->input());
 
         return response()->json([
@@ -89,8 +100,9 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Company $company)
+    public function destroy(Request $request)
     {
+        $company= Company::find($request->id);
         $company->delete();
         return response()->json([
             'status'=>true,
