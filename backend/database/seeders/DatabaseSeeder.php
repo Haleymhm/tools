@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
        \App\Models\Company::factory()->create([
         'company_name' => 'Empresa Test 01',
         'company_email' => 'admintest@tool.test',
-   ]);
+        ]);
 
+        \App\Models\Company::factory(5)->create();
     }
 }
