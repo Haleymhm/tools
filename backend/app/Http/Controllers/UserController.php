@@ -22,7 +22,7 @@ class UserController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Query successfully',
-            'data' => $users]
+            'response' => $users]
             , 200);
     }
 
@@ -31,7 +31,7 @@ class UserController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Query successfully',
-            'data' => $user]
+            'response' => $user]
             , 200);
     }
 
@@ -45,7 +45,7 @@ class UserController extends Controller
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error en consulta',
-                'data' => $validator->errors()->all()]
+                'response' => $validator->errors()->all()]
                 , 400);
         }
 
@@ -62,13 +62,13 @@ class UserController extends Controller
             return response()->json([
                 'status'=>true,
                 'msg'=>'Query successfully',
-                'data' => $user]
+                'response' => $user]
                 , 201);
         }else{
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error create User',
-                'data' => $user]
+                'response' => $user]
                 , 400);
         }
     }
@@ -83,7 +83,7 @@ class UserController extends Controller
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error en consulta',
-                'data' => $validator->errors()->all()]
+                'response' => $validator->errors()->all()]
                 , 400);
         }
 
@@ -101,13 +101,13 @@ class UserController extends Controller
             return response()->json([
                 'status'=>true,
                 'msg'=>'Query successfully',
-                'data' => $user]
+                'response' => $user]
                 , 200);
         }else{
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error create User',
-                'data' => $user]
+                'response' => $user]
                 , 400);
         }
     }
@@ -120,13 +120,13 @@ class UserController extends Controller
             return response()->json([
                 'status'=>true,
                 'msg'=>'Query successfully',
-                'data' => []]
+                'response' => []]
                 , 200);
         }else{
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error Change password',
-                'data' => []]
+                'response' => []]
                 , 400);
         }
     }
@@ -141,13 +141,13 @@ class UserController extends Controller
             return response()->json([
                 'status'=>true,
                 'msg'=>'Query successfully',
-                'data' => []]
+                'response' => []]
                 , 200);
         }else{
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error Change status',
-                'data' => []]
+                'response' => []]
                 , 400);
         }
     }

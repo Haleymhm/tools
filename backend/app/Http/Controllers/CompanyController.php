@@ -20,7 +20,7 @@ class CompanyController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Consulta Exitosa',
-            'data' => $company]
+            'response' => $company]
             , 200);
     }
 
@@ -33,7 +33,7 @@ class CompanyController extends Controller
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error en consulta',
-                'data' => $validator->errors()->all()]
+                'response' => $validator->errors()->all()]
                 , 400);
         }
 
@@ -43,7 +43,7 @@ class CompanyController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Query successfully',
-            'data' => $company]
+            'response' => $company]
             , 201);
 
     }
@@ -52,7 +52,7 @@ class CompanyController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Query successfully',
-            'data' => $company]
+            'response' => $company]
             , 200);
     }
 
@@ -64,7 +64,7 @@ class CompanyController extends Controller
             return response()->json([
                 'status'=>false,
                 'msg'=>'Error en consulta',
-                'data' => $validator->errors()->all()]
+                'response' => $validator->errors()->all()]
                 , 400);
         }
 
@@ -74,7 +74,7 @@ class CompanyController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Record UPDATED successfully',
-            'data' => $company]
+            'response' => $company]
             , 200);
     }
 
@@ -84,7 +84,7 @@ class CompanyController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Record DELETED successfully',
-            'data' => $company]
+            'response' => $company]
             , 200);
     }
 
@@ -95,7 +95,7 @@ class CompanyController extends Controller
         return response()->json([
             'status'=>true,
             'msg'=>'Query successfully',
-            'data' => $users]
+            'response' => $users]
             , 200);
     }
 }
