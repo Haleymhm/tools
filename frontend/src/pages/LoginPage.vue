@@ -38,7 +38,7 @@
 
             <div class="container-login100-form-btn ">
               <q-btn color="white" text-color="primary" label="Push" class="login100-form-btn" />
-              <q-btn type="submit" label="Guardar" color="primary" class="login100-form-btn" />
+              <q-btn type="submit" label="Guardar" color="primary" @click="onSubmit()" class="login100-form-btn" />
               
             </div>
           </q-form>
@@ -64,6 +64,11 @@ export default defineComponent({
       password: "",
       isPwd: true,
     };
+  },
+  methods: {
+    onSubmit(){
+      window.location.replace('#/home');
+    }
   },
 });
 </script>
