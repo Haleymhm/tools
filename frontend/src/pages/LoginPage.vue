@@ -3,11 +3,15 @@
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
+          
           <q-form
-            @submit="onSubmit"
-            @reset="onReset"
             class="login100-form validate-form"
           >
+          
+          <div>
+            <img alt="Quasar logo" src="~assets/shield.svg" style="width: 100px; height: 100px" />
+            <span class="q-ml-sm">Safe Track</span>
+          </div>
             <span class="login100-form-title p-b-43">
               Entrada del sistema
             </span>
@@ -38,7 +42,7 @@
 
             <div class="container-login100-form-btn ">
               <q-btn color="white" text-color="primary" label="Push" class="login100-form-btn" />
-              <q-btn type="submit" label="Guardar" color="primary" class="login100-form-btn" />
+              <q-btn type="submit" label="Guardar" color="primary" @click="onSubmit()" class="login100-form-btn" />
               
             </div>
           </q-form>
@@ -64,6 +68,11 @@ export default defineComponent({
       password: "",
       isPwd: true,
     };
+  },
+  methods: {
+    onSubmit(){
+      window.location.replace('#/home');
+    }
   },
 });
 </script>
@@ -137,7 +146,7 @@ body, html {
   min-height: 100vh;
   display: block;
   background-color: #f7f7f7;
-  padding: 173px 55px 55px 55px;
+  padding: 25px 55px 55px 55px;
 }
 
 .login100-form-title {
@@ -147,6 +156,7 @@ body, html {
   color: #333333;
   line-height: 1.2;
   text-align: center;
+  padding-top: 10px;
 }
 
 /*------------------------------------------------------------------

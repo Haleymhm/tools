@@ -56,8 +56,24 @@ class CompanyController extends Controller
             , 200);
     }
 
-    public function update(Request $request){
-        $validator = Validator::make($request->input(),
+    public function showData(Request $request){
+        $company = Company::find($request->input('id'));
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Query successfully Company',
+            'response' => $company]
+            , 200);
+    }
+
+    public function updateCompany(Request $request){
+        /*return response()->json([
+            'status'=>true,
+            'msg'=>'LO QUE LLEGA EL CONTROLLADOR',
+            'response' => $request->input()]
+            , 200);
+        exit;*/
+        try {
+            $validator = Validator::make($request->input(),
                         ['company_name'=>'required|string|min:3|max:100'
                     ]);
         if($validator->fails()){
@@ -68,14 +84,37 @@ class CompanyController extends Controller
                 , 400);
         }
 
-        $company= Company::find($request->id);
-        $company->update($request->input());
-
-        return response()->json([
-            'status'=>true,
-            'msg'=>'Record UPDATED successfully',
-            'response' => $company]
-            , 200);
+        $company= Company::find($request->input('id'));
+        $company->company_rutrif = $request->input('company_rutrif');
+        $company->company_name = $request->input('company_name');
+        $company->company_address = $request->input('company_address');
+        $company->company_telephone = $request->input('company_telephone');
+        $company->company_email = $request->input('company_email');
+        if ($company->save()){
+            return response()->json([
+                'status'=>true,
+                'msg'=>'Record UPDATED successfully',
+                'response' => $company]
+                , 200);
+        }else{
+            return response()->json([
+                'status'=>false,
+                'msg'=>'Error en consulta',
+                'response' => '']
+                , 405);
+        }
+        } catch (Exception $e) {
+            return response()->json([
+                'status'=>false,
+                'msg'=>'Error en consulta',
+                'response' => $e->getMessage(),
+                'my-request' => $request]
+                , 500);
+        }
+        
+        
+        
+        
     }
 
     public function destroy(Request $request){
