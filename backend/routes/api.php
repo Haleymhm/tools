@@ -29,6 +29,7 @@ Route::resource('company', CompanyController::class);
 Route::put('company', [CompanyController::class,'update']);
 Route::delete('company', [CompanyController::class,'destroy']);
 Route::post('company/user-by-company', [CompanyController::class,'userByCompany']);
+Route::post('company/get-data', [CompanyController::class,'showData']);
 
 Route::post('users/get-users-list', [UserController::class,'getUsersList']);
 Route::post('users/get-user', [UserController::class,'getUser']);

@@ -34,6 +34,7 @@
 
 <script>
 import { defineComponent } from "vue";
+import axios from 'axios';
 
 export default defineComponent({
   name: "CompanyPage",
@@ -47,9 +48,19 @@ export default defineComponent({
       logo: null,
     };
   },
+  mounted() {
+    this.loadData()
+  },
   methods: {
     submitForm() {
       // Aquí puedes agregar la lógica para enviar el formulario
+    },
+
+    async loadData(){
+      let data = {id:'9a2e095b-0916-4d82-b0e1-c7479cb40875'};
+      const res  = await axios.post('http://localhost:8000/api/company/get-data',data );
+      console.log(res.data);
+      //this.data = res;
     },
   },
 });

@@ -56,6 +56,15 @@ class CompanyController extends Controller
             , 200);
     }
 
+    public function showData(Request $request){
+        $company = Company::find($request->input('id'));
+        return response()->json([
+            'status'=>true,
+            'msg'=>'Query successfully Company',
+            'response' => $company]
+            , 200);
+    }
+
     public function update(Request $request){
         $validator = Validator::make($request->input(),
                         ['company_name'=>'required|string|min:3|max:100'
