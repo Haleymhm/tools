@@ -21,24 +21,28 @@ use App\Http\Controllers\TypeactivityController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+
+Route::post('auth/register',[AuthController::class,'register']);
+Route::post('auth/login', [AuthController::class, 'login']);
+
+Route::middleware(['auth:sanctum'])->group(function () {
+
+    Route::post('company/company-update', [CompanyController::class,'updateCompany']);
+    Route::post('company/user-by-company', [CompanyController::class,'userByCompany']);
+    Route::post('company/get-data', [CompanyController::class,'showData']);
+
+    Route::post('users/get-users-list', [UserController::class,'getUsersList']);
+    Route::post('users/get-user', [UserController::class,'getUser']);
+    Route::post('users/create-user', [UserController::class,'cretedUser']);
+    Route::post('users/update-user', [UserController::class,'updateUser']);
+    Route::post('users/activate-user', [UserController::class,'activateUser']);
+    Route::post('users/password-user', [UserController::class,'activateUser']);
+
+    Route::resource('unit-operative', UnitoperativeController::class);
+    Route::resource('type-activity', TypeactivityController::class);
+
+    Route::get('auth/logout', [AuthController::class, 'logout']);
 });
-
-Route::post('/register',[AuthController::class,'register']);
-Route::post('/login', [AuthController::class, 'login']);
-
-Route::post('company/company-update', [CompanyController::class,'updateCompany']);
-Route::post('company/user-by-company', [CompanyController::class,'userByCompany']);
-Route::post('company/get-data', [CompanyController::class,'showData']);
-
-Route::post('users/get-users-list', [UserController::class,'getUsersList']);
-Route::post('users/get-user', [UserController::class,'getUser']);
-Route::post('users/create-user', [UserController::class,'cretedUser']);
-Route::post('users/update-user', [UserController::class,'updateUser']);
-Route::post('users/activate-user', [UserController::class,'activateUser']);
-Route::post('users/password-user', [UserController::class,'activateUser']);
-
-
-Route::resource('unit-operative', UnitoperativeController::class);
-Route::resource('type-activity', TypeactivityController::class);
