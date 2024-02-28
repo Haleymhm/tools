@@ -20,18 +20,16 @@ Route::post('register',[AuthController::class,'register']);
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout']);
 
-Route::post('user/get-users-list', [UserController::class,'getUsersList']);
-Route::post('user/get-user', [UserController::class,'getUser']);
-Route::post('user/create-user', [UserController::class,'cretedUser']);
-Route::post('user/update-user', [UserController::class,'updateUser']);
-Route::post('user/activate-user', [UserController::class,'activateUser']);
-Route::post('user/password-user', [UserController::class,'activateUser']);
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    
+    Route::post('user/create-user', [UserController::class,'cretedUser']);
+    Route::post('user/get-users-list', [UserController::class,'getUsersList']);
+    Route::post('user/get-user', [UserController::class,'getUser']);
+    Route::post('user/update-user', [UserController::class,'updateUser']);
+    Route::post('user/activate-user', [UserController::class,'activateUser']);
+    Route::post('user/password-user', [UserController::class,'activateUser']);
 
-Route::post('company/create-company', [CompanyController::class,'createCompany']);
-Route::post('company/update-company', [CompanyController::class,'updateCompany']);
-Route::post('company/user-by-company', [CompanyController::class,'userByCompany']);
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::post('company/create-company', [CompanyController::class,'createCompany']);
+    Route::post('company/update-company', [CompanyController::class,'updateCompany']);
+    Route::post('company/user-by-company', [CompanyController::class,'userByCompany']);
 });
