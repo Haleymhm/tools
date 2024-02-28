@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('typeactivities', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->char('id_company',36);
+            $table->char('id_operativeunit',36);
             $table->string('type_title');
             $table->text('type_description');
             $table->string('type_color',8)->default("#AEB6BF");

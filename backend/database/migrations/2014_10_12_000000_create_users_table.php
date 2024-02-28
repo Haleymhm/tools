@@ -12,15 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            //$table->id();
             $table->uuid('id')->primary();
-            $table->string('id_user',36)->nullable();
-            $table->string('company_rutrif',15)->nullable();
-            $table->string('company_name');
-            $table->string('company_address')->nullable();
-            $table->string('company_telephone')->nullable();
-            $table->string('company_email')->nullable();
-            $table->string('company_logo')->nullable()->default("nologo.png");
+            $table->char('id_company',36)->nullable();
+            $table->char('id_unitop',36)->nullable();
+            $table->char('id_typeact',36)->nullable();
+            $table->string('rutrif',15)->nullable(); //verificar a ver sise puede
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('photo')->nullable()->default("nophoto.png");
+            $table->string('position')->nullable();
+            $table->string('timezone')->nullable()->default("America/Santiago");
+            $table->char('language',2)->nullable()->default("es");
+            $table->integer('view')->default(0);
+            $table->string('password');
+            $table->integer('status')->default(1);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->char('id_operativeunit',36);
             $table->char('id_typeoprative',36);
             $table->string('activity_title');
+            $table->string('activity_begin');
+            $table->string('activity_end');
         });
     }
 
