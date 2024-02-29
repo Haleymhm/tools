@@ -1,8 +1,9 @@
 # tools
-Algo asi como un Google Calendar vitamizado
+Prentende ser una herramienta similar a Google Calendar pero con funciones integradas
 
 ## Frontend 
-Quasar
+Next.js 14
+TailwindCSS
 
 ## Backend
-Laravel
+Laravel 10
